@@ -4,6 +4,7 @@ mongoose.connect("mongodb://agottlich:abby123@ds335275.mlab.com:35275/checkpoint
 const bodyParser = require("body-parser");
 const app = express();
 const fetch = require('node-fetch');
+const csvtojsonV2 = require("csvtojson");
 
 const messageRoutes = require("./Routes/MessageRoutes");
 const taskRoutes = require("./Routes/TaskRoutes");
@@ -26,3 +27,11 @@ app.get('/foxes', function (req, res) {
         .then(res => res.json())
         .then(body => res.json(body));
 });
+
+const csvFilePath = '/Users/abby.bellow/documents/ACAAdvanceClassProjects/checkpoint-backend-1/server/data.csv'
+const csv = require('csvtojson')
+csv()
+    .fromFile(csvFilePath)
+    .then((jsonObj) => {
+        console.log(jsonObj);
+    });
