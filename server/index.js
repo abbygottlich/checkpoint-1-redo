@@ -5,13 +5,13 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const messageRoutes = require("./Routes/MessageRoutes");
-// const taskRoutes = require("./Routes/TaskRoutes");
-// const orderRoutes = require("./Routes/OrderRoutes");
+const taskRoutes = require("./Routes/TaskRoutes");
+const orderRoutes = require("./Routes/OrderRoutes");
 
 app.use(bodyParser.json());
 app.use(messageRoutes);
-// app.use(taskRoutes);
-// app.use(orderRoutes);
+app.use(taskRoutes);
+app.use(orderRoutes);
 
 app.listen(3001, (err) => {
     if (err) {
