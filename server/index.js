@@ -22,20 +22,23 @@ app.listen(3001, (err) => {
     console.log("Web server is now listening for messages", err);
 });
 
+// fetch
 app.get('/foxes', function (req, res) {
     fetch('https://randomfox.ca/floof/')
         .then(res => res.json())
         .then(body => res.json(body));
 });
 
+// CSV to JSON
 const csvFilePath = '/Users/abby.bellow/documents/ACAAdvanceClassProjects/checkpoint-backend-1/server/data.csv'
 const csv = require('csvtojson')
 csv()
     .fromFile(csvFilePath)
     .then((jsonObj) => {
-        // console.log(jsonObj);
+        console.log(jsonObj);
     });
 
+// array to object
 let data = {}
 data["new_comments"] = "33";
 data["new_tasks"] = "12";
