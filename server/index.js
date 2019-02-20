@@ -9,11 +9,13 @@ const csvtojsonV2 = require("csvtojson");
 const messageRoutes = require("./Routes/MessageRoutes");
 const taskRoutes = require("./Routes/TaskRoutes");
 const orderRoutes = require("./Routes/OrderRoutes");
+const dataRoutes = require("./Routes/DataRoutes")
 
 app.use(bodyParser.json());
 app.use(messageRoutes);
 app.use(taskRoutes);
 app.use(orderRoutes);
+app.use(dataRoutes);
 
 app.listen(3001, (err) => {
     if (err) {
@@ -28,21 +30,4 @@ app.get('/foxes', function (req, res) {
         .then(res => res.json())
         .then(body => res.json(body));
 });
-
-// CSV to JSON
-const csvFilePath = '/Users/abby.bellow/documents/ACAAdvanceClassProjects/checkpoint-backend-1/server/data.csv'
-const csv = require('csvtojson')
-csv()
-    .fromFile(csvFilePath)
-    .then((jsonObj) => {
-        console.log(jsonObj);
-    });
-
-// array to object
-let data = {}
-data["new_comments"] = "33";
-data["new_tasks"] = "12";
-data["new_orders"] = "15";
-data["tickets"] = "4";
-console.log(data);
 
