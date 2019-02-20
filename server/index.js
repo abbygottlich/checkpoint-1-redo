@@ -33,5 +33,13 @@ const csv = require('csvtojson')
 csv()
     .fromFile(csvFilePath)
     .then((jsonObj) => {
-        console.log(jsonObj);
+        // console.log(jsonObj);
     });
+
+let data = {}
+data["new_comments"] = "33";
+data["new_tasks"] = "12";
+data["new_orders"] = "15";
+data["tickets"] = "4";
+console.log(data);
+
